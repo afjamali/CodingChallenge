@@ -44,14 +44,16 @@ public class GettingToPhilosophyServlet
 
     final String link = request.getParameter("n");
 
-
     try {
       g2p.run(link);
     } catch (SQLException e) {
       e.printStackTrace();
     } catch (ClassNotFoundException e) {
       e.printStackTrace();
+    }catch (IOException e) {
+      e.printStackTrace();
     }
+
     response.setContentType("text/html");
     PrintWriter out = response.getWriter();
 
@@ -60,7 +62,7 @@ public class GettingToPhilosophyServlet
       out.println("<html>");
       out.println("<head><title>Bento Coding Challenge</title></head>");
       out.println("<body>");
-      out.println("<h1>Bento Coding Challange!</h1>");
+      out.println("<h1>Bento Coding Challenge!</h1>");
       for(String path : g2p.getPathList()){
         out.println("<p>" + path + "</p>");
       }

@@ -53,6 +53,8 @@ public class GettingToPhilosophy {
 
     public void run(String link) throws IOException, SQLException, ClassNotFoundException {
         boolean search = false;
+
+        // Add initial path to path list
         link = link.substring(link.lastIndexOf("/") + 1).trim();
         link = link.substring(0,1).toUpperCase() + link.substring(1).toLowerCase();
         addPath(link);
