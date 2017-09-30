@@ -8,6 +8,10 @@
 
  From browser type in: http://24.14.126.142:8080/WIKI/bento?n=logic
 
+ or
+
+ From browser type in: http://24.14.126.142:8080/WIKI/bento?n=https://en.wikipedia.org/wiki/logic
+
  All acceptable commands are displayed on the various consoles.
 
  This runs with ip 24.14.126.142 and port 8080:
