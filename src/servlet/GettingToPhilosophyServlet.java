@@ -40,13 +40,13 @@ public class GettingToPhilosophyServlet
   protected void doGet(HttpServletRequest request, HttpServletResponse response)
           throws ServletException, IOException {
 
-    this.g2p = new GettingToPhilosophy();
+    g2p = new GettingToPhilosophy();
 
     final String link = request.getParameter("n");
 
 
     try {
-      this.g2p.run(link);
+      g2p.run(link);
     } catch (SQLException e) {
       e.printStackTrace();
     } catch (ClassNotFoundException e) {
@@ -61,10 +61,10 @@ public class GettingToPhilosophyServlet
       out.println("<head><title>Bento Coding Challenge</title></head>");
       out.println("<body>");
       out.println("<h1>Bento Coding Challange!</h1>");
-      for(String path : this.g2p.getPathList()){
+      for(String path : g2p.getPathList()){
         out.println("<p>" + path + "</p>");
       }
-      out.println("<p>" + "Total Hops: " + this.g2p.getPathSize() + "</p>");
+      out.println("<p>" + "Total Hops: " + g2p.getPathSize() + "</p>");
       out.println("</body></html>");
     } finally {
       out.close();
