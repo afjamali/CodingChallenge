@@ -2,9 +2,7 @@
 
  1. Afshin Jamali / Date: 9/29/2017
 
- 2. Java version used, if not the official version for the class:
-
- Version "9"
+ 2. Java version used: Version "9"
 
  4. Precise examples / instructions to run this program:
 
