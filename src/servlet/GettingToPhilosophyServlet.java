@@ -37,13 +37,10 @@ public class GettingToPhilosophyServlet
   private GettingToPhilosophy g2p = null;
 
   @Override
-  public void init() {
-    this.g2p = new GettingToPhilosophy();
-  }
-
-  @Override
   protected void doGet(HttpServletRequest request, HttpServletResponse response)
           throws ServletException, IOException {
+
+    this.g2p = new GettingToPhilosophy();
 
     final String link = request.getParameter("n");
 
