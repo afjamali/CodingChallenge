@@ -54,6 +54,7 @@ public class GettingToPhilosophy {
     public void run(String link) throws IOException, SQLException, ClassNotFoundException {
         boolean search = false;
         link = link.substring(link.lastIndexOf("/") + 1).trim();
+        link = link.substring(0,1).toUpperCase() + link.substring(1).toLowerCase();
         addPath(link);
 
         do {
@@ -69,7 +70,7 @@ public class GettingToPhilosophy {
                         // Clear unnecessary links
                         removeCitationLinks();
                         removeHelpLinks();
-                        removeRecursiveLink2LastVisitedPage();
+                        removeDuplicateLinks();
 
                         // Ignore links in side tables or containers
                         if (skipLinksInTables()) {
@@ -197,9 +198,9 @@ public class GettingToPhilosophy {
         str = str.replaceAll("href=\"/wiki/Help:IPA", " ");
     }
 
-    private void removeRecursiveLink2LastVisitedPage(){
-        if (pathList.size() > 1) {
-            str = str.replaceAll("href=\"/wiki/" + pathList.get(pathList.size() - 2), " ");
+    private void removeDuplicateLinks(){
+        for(String prevLink : pathList) {
+            str = str.replaceAll("href=\"/wiki/" + prevLink, " ");
         }
     }
 
