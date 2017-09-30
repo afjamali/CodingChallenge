@@ -104,7 +104,7 @@ public class GettingToPhilosophy {
 
         // Store path in a database
         storePathInDb();
-        System.out.println("YAY!!  Total Hops: " + getPathSize());
+        System.out.println("YAY!!  Total Hops: " + (getPathSize()-1));
     }
 
     private void storePathInDb() throws SQLException, ClassNotFoundException {
