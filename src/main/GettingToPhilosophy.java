@@ -220,7 +220,7 @@ public class GettingToPhilosophy {
     }
 
     private void processCompletionMessage(){
-        if(hops <= HOP_LIMIT && pathList.get(pathList.size()-1).toLowerCase().equals(GOAL))
+        if(hops <= HOP_LIMIT && pathList.size() >=1 && pathList.get(pathList.size()-1).toLowerCase().equals(GOAL))
             completionMessage = "Path completed successfully. Total Hops: " + hops;
         else
             completionMessage = "Path did not complete successfully: Total Hops: " + hops;
