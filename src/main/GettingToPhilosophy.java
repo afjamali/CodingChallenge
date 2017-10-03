@@ -42,7 +42,10 @@ import java.util.ArrayList;
 public class GettingToPhilosophy {
 
     private final String GOAL = "philosophy";
-    static String str;
+    private final int HOP_LIMIT = 500;
+    private static String completionMessage;
+    private String str;
+    private int hops;
     private ArrayList<String> pathList;
     private ArrayDeque<String> tableDeque;
     private  ArrayDeque<String> ulDeque;
@@ -95,6 +98,7 @@ public class GettingToPhilosophy {
                                 addPath(link);
                                 System.out.println(link);
                                 search = false;
+                                hops++;
                                 break;
                             }
                         }
@@ -107,10 +111,11 @@ public class GettingToPhilosophy {
                 System.out.println(e);
                 System.exit(1);
             }
-        } while (!link.toLowerCase().equals(getGOAL()));
+        } while (!link.toLowerCase().equals(getGOAL()) && hops <= HOP_LIMIT);
 
         // Store path in a database
         storePathInDb();
+        processCompletionMessage();
         System.out.println("YAY!!  Total Hops: " + (getPathSize()-1));
     }
 
@@ -212,6 +217,17 @@ public class GettingToPhilosophy {
 
     private void addPath(String p){
         pathList.add(p);
+    }
+
+    private void processCompletionMessage(){
+        if(hops <= HOP_LIMIT && pathList.get(pathList.size()-1).toLowerCase().equals(GOAL))
+            completionMessage = "Path completed successfully. Total Hops: " + hops;
+        else
+            completionMessage = "Path did not complete successfully: Total Hops: " + hops;
+    }
+
+    public String getCompletionMessage(){
+        return  completionMessage;
     }
 
     public ArrayList<String> getPathList() {

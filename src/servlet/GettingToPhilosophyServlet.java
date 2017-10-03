@@ -70,7 +70,7 @@ public class GettingToPhilosophyServlet
       for(String path : g2p.getPathList()){
         out.println("<p>" + path + "</p>");
       }
-      out.println("<p>" + "Total Hops: " + (g2p.getPathSize()-1) + "</p>");
+      out.println("<p>" + g2p.getCompletionMessage() + "</p>");
       out.println("</body></html>");
     } finally {
       out.close();
